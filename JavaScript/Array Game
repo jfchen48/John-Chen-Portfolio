@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+ <!-- John CHen
+ 	5/11/2015
+ 	Assignment 20-Form Objects -->
+		
+		<title>Assignment 20-Form Objects</title>
+		<script>
+			
+			function formValidate() {
+				var textstring = "";
+				var textstring2 = "";
+				var textstring3 = "";
+				var textstring4 = "";
+				var selOptions = document.forms[0].selProgram;
+				var chkBoxes = document.forms[0].chkClass;
+				var grad = document.forms[0].date;
+				
+				//For Text Boxes
+				if(document.forms[0].txtFirst.value.length == 0 ) {
+					alert("Please enter a First Name.");
+					
+				} 
+				 else if (document.forms[0].txtLast.value.length == 0 ) 
+				{
+					alert("Please enter a Last Name.");
+				}
+				
+				
+				else {
+				//Select Box
+				for (var i=0; i < selOptions.options.length; i++) {
+					
+					if (selOptions.options[0].selected == false && selOptions.options[1].selected == false && selOptions.options[2].selected == false && 					selOptions.options[3].selected == false && selOptions.options[4].selected == false)	{
+						alert("select a program.");
+						return false;
+					}	
+					
+					else {
+							if (selOptions.options[i].selected == true) {
+							textstring2 += selOptions.options[i].value + "\n" + "\t\t"; 
+							}
+						 }
+	 			}
+				
+				//Check Boxes
+				for (var i = 0; i < chkBoxes.length; i++) {
+					if (chkBoxes[0].checked == false && chkBoxes[1].checked == false && chkBoxes[2].checked == false && chkBoxes[3].checked == false) {
+					alert("check a class you've completed.");
+					return false;
+				}
+					else {
+			   		 	if (chkBoxes[i].checked == true){
+						textstring3 += chkBoxes[i].value + "\n" + "\t\t";
+						}
+					}
+				}
+				
+				//Radio Buttons
+				for (var i=0; i < grad.length; i++) {
+					
+					if(grad[0].checked == false && grad[1].checked == false && grad[2].checked == false && grad[3].checked == false) {
+						alert("select a graduation date.");
+						return false;
+					}
+					else {
+						if(grad[i].checked == true) {
+						textstring4 += grad[i].value + "\n";
+						}
+					}
+				}
+				
+				textstring += document.forms[0].txtFirst.value + " " + document.forms[0].txtLast.value + "\n" + "Email: " + document.forms[0].email.value;
+				document.forms[0].txtArea.value = "Student:\t" + textstring + "\n" + "Program:\t" + textstring2 + "\r" + "Classes:\t" + textstring3 + "\r" + "Graduation:\t" + textstring4;
+				
+			}
+		}
+			
+			
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<p>Please enter the following information: </p><br>
+		<form action="#" method="post" id="info" name="info" onsubmit=" return false;">
+		<!-- Text Boxes -->
+			
+			<label for="txtFirst">Enter First Name (required):</label>
+			<input type="text" id="txtFirst" name="txtFirst" /><br>
+			
+			
+			<label for="txtLast">Enter Last Name (required):</label>
+			<input type="text" id="txtLast" name="txtLast" /><br>
+			
+			
+			<label for="txtemail">Enter Email (optional):</label>
+			<input type="text" id="email" name="email" /><br>
+			
+			
+		<!-- Select Boxes -->
+	
+			
+			<p>Programs enrolled in:</p>
+			
+			<select name="selProgram" size="1">
+				<option>IT-Web Development and Design</option>
+				<option>IT-Computer Support Specialist</option>
+				<option>IT-Programmer/Analyst</option>
+				<option>IT-Network Specialist</option>
+				<option>IT - Network Administration</option>
+			</select>
+			
+		
+		<!-- Check Boxes -->
+		
+			<p>Check classes you have completed:</p>
+			<input type="checkbox" id="class1" name="chkClass" value="Web Development using HTML">
+			<label for="class1">Web Development using HTML</label><br>
+			
+			<input type="checkbox" id="class2" name="chkClass" value="IT Concepts">
+			<label for="class2">IT Concepts</label><br>
+			
+			<input type="checkbox" id="class3" name="chkClass" value="BITTS">
+			<label for="class3">BITTS</label><br>
+			
+			<input type="checkbox" id="color4" name="chkClass" value="Oral Communication">
+			<label for="color4">Oral Communication</label><br>
+		
+		
+		<!-- Radio Buttons -->
+			
+			<p>Please select graduation date:</p>
+			
+			<input type="radio" name="date" id="dec14" value="December 2014" />
+			<label for="dec14">December 2014</label><br>
+			<input type="radio" name="date" id="may15" value="May 2015" />
+			<label for="may15">May 2015</label><br>
+			<input type="radio" name="date" id="dec15" value="December 2015" />
+			<label for="dec15">December 2015</label><br>
+			<input type="radio" name="date" id="may16" value="May 2016" />
+			<label for="may16">May 2016 or after</label><br>
+	
+			<input type="submit" value="Submit" onclick=" return formValidate();">
+			<input type="reset">
+			
+			<label for="txtArea">Output:</label><br>
+			<textarea id="txtArea" name="txtArea" cols="60" rows="20" readonly="readonly"> </textarea> <br><br>
+			
+					
+		</form>		
+		
+			
+			
+			
+	</body>
+</html>

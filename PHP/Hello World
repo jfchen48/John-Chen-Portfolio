@@ -1,0 +1,104 @@
+<html>
+	
+	<body>
+	
+	<?php
+    
+    //Loops
+    
+    $i = 1;
+	
+	while($i<7)
+	{
+		echo ("<h$i>Hello World</h$i>");
+		$i++;
+	}
+    
+	$i = 6;
+	while ($i>0)
+	{
+		 echo ('<h' . $i. '>Hello World</h' . $i.'>');
+		 $i--;
+	}
+    
+	//String Manipulation
+	
+	$x = "John Chen";
+	
+	echo ("<h4>My name is $x<h4>");
+	
+	$y = "<h4>My name is $x<h4>";
+	
+	$z = strtoupper($y);
+	
+	echo $z;
+	
+	$a = "<h4>My name is $x<h4>";
+	
+	$b = strtolower($a);
+	
+	echo $b;
+	
+	$string = "$x";
+	$find = " ";
+	$pos = strpos($string, $find);
+	
+	echo "The space is at position $pos" . "<br />";
+	
+	$full = "$x";
+	$piece = explode(" ", $full);
+	
+	echo $piece[0] . "<br />";
+	
+	echo $piece[1] . "<br />";
+	//Number Manipulation
+	$num1 = mt_rand();
+	$num2 = mt_rand();
+	
+	echo ("The first random number is: $num1" . "<br />");
+	
+	echo ("The second random number is: $num2" . "<br />");
+	
+	if ($num1>$num2)
+	{
+		echo("The first random number of $num1 is larger than the second random number of $num2" . "<br />");
+	}
+	
+	if ($num1<$num2) {
+		echo("The second random number of $num2 is larger than the first random number of $num1" . "<br />");
+	}
+	
+	$div = $num1/$num2;
+	
+	echo("The numbers divided yield: $div" . "<br />");
+	
+	$round = round($div, 3);
+	echo("The numbers divided yield: $round" . "<br />");
+	
+	//Date Manipulation
+	
+	$date = date("m.d.Y");
+	echo $date;
+	echo "<h1 align='center'>$date</h1>";
+	
+	$end = mktime(0,0,0,12,22,2015,0);
+	$now = time();
+	
+	$days = round(($end - $now)/60/60/24, 0);
+	$hours = round(($end - $now)/60/60, 0);
+	$minutes = round(($end - $now)/60, 0);
+	$seconds = round(($end - $now), 0);
+	echo ("Days remaining in semester: $days" . "<br />");
+	echo ("Hours remaining in semester: $hours" . "<br />");
+	echo ("Minutes remaining in semester: $minutes" . "<br />");
+	echo ("Seconds remaining in semester: $seconds" . "<br />");
+	
+// Include
+
+include 'PhpIdentify.php';
+?>
+
+
+	</body>
+	
+</html>

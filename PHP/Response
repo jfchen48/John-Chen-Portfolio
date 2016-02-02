@@ -1,0 +1,142 @@
+<?php
+
+//First Name
+if (empty($_GET['txtFirstName']))
+{	
+	header('Location:CreateAccount.html');
+	exit();
+}
+else {
+	$First = $_GET['txtFirstName'];
+}
+
+//Last Name
+//if (empty($_GET['txtLastName']))
+//{
+	//header('Location:CreateAccount.html');
+	//exit();
+//}
+//else {
+	$Last = $_GET['txtLastName'];
+//}
+
+	$Full = $First . " " . $Last; 
+	
+//Email
+
+$Email = $_GET['txtEmail'];
+	$strPos = strpos($Email, '@');
+	if($strPos === FALSE)
+	{
+		header('Location:CreateAccount.html');
+		exit();
+	}
+	
+	else{
+		$Email = $_GET['txtEmail'];
+	}
+//Phone
+	$Phone = $_GET['txtPhone'];
+
+	$phonePattern = "/\(\d\d\d\)\d\d\d-\d\d\d\d/";
+	if (!preg_match ($phonePattern, $Phone))
+		{
+			header('Location:CreateAccount.html');
+			exit();
+		}
+	
+	
+//Address	
+
+	if (empty($_GET['txtAddress']))
+		{
+			header('Location:CreateAccount.html');
+			exit();
+		}
+	else 
+		{
+			$Address = $_GET['txtAddress'];
+		}
+
+//City
+
+	if (empty($_GET['txtCity']))
+	
+		{
+			header('Location:CreateAccount.html');
+			exit();
+		}
+	else 
+		{
+			$City = $_GET['txtCity'];
+		}
+
+		
+//State
+				
+	include ('StateArray.php');
+	
+	$State = $_GET['1stState'];
+	
+	if (!in_array($State, $StateCodes))
+		{
+			header('Location:CreateAccount.html');
+			exit();
+		}
+		
+	
+//Zip
+	
+	$Zip = $_GET['txtZip'];
+	
+	if(!is_numeric($Zip))
+	{
+		header('Location:CreateAccount.html');
+		exit();
+	}
+	
+	if(strlen($Zip) != 5)
+	{
+		header('Location:CreateAccount.html');
+		exit();
+	}
+//Password 
+
+	$Pass = $_GET['txtPassword'];
+	$Passver = $_GET['txtPwdVerify'];
+
+if( $Pass != $Passver )
+{
+	
+header('Location:CreateAccount.html');
+	exit();
+}
+	
+?>
+
+<html>
+	<head><title>Thanks!</title></head>
+		<body>
+			<h1>Thanks for your order!</h1>
+			<h2>You have submitted the following info:</h2>
+			
+			<?php
+			echo("<h3>Name: $Full<h3>");
+			echo("<h3>Email: $Email<h3>");
+			echo("<h3>Phone: $Phone<h3>");
+			echo("<h3>Address: $Address<h3>");
+			echo("<h3>City: $City<h3>");
+			echo("<h3>State: $State<h3>");
+			echo("<h3>Zip: $Zip<h3>");
+			echo("<h3>Password: $Pass<h3>");
+			echo("<h3>Password Verify: $Passver<h3>");
+			
+			?>
+			
+			
+			
+		</body>
+	
+	
+	
+</html>

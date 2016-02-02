@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Assignment 9-Strings and Arrays B and C.</title>
+		
+		<!-- Assignment 9 - Strings and Arrays pt. B & C. 
+			John Chen
+			3/10/2015
+		-->
+		
+		<script>
+			/* ++++++++++++++++Part B+++++++++++++++++++++ */
+			
+			// 1.
+			
+			var sportArray = new Array("football", "soccer", "basketball", "tennis", "swimming", "golf");
+			
+			//2. 
+			
+			for (var index = 0;  index <= 5; index++) 
+			
+  	{
+  		  	document.write("The beginning array is " + sportArray[index] + "<br />");
+  	}
+			
+			//3. 
+			
+			sportArray.push("running", "biking");
+			
+			for (var index = 0;  index <= 7; index++) 
+			
+  	{
+  		  	document.write("The new array after adding 2 sports is " + sportArray[index] + ".<br />");
+  	}
+			var x; //length of new string
+			
+			x = sportArray.length;
+			
+			document.write("The length of the new array is " + x + ".<br />");
+			
+		
+			//4.
+			
+			var c;
+			
+			c = sportArray.reverse();
+			
+			for (var index = 0;  index <= 7; index++) 
+			
+  	{
+  		  	document.write("The new array after reversing the elements is " + sportArray[index] + ".<br />");
+  	}
+  	
+  	/* ++++++++++++++++ Part C +++++++++++++++++ */
+  	
+  	//1. 
+  	
+  	var firstNameArray = new Array("Sam", "Joe", "Amy", "Ted", "Ruth", "Kris");
+  	
+  	//2. 
+  	
+  		firstNameArray.unshift("John");
+  		
+  		for (var index = 0;  index <= 6; index++) 
+  		
+  	{
+  		  	document.write("The array after adding my name has the elements " + firstNameArray[index] + ".<br />");
+  	}
+  	
+  	//3. 
+  	
+  	firstNameArray.sort();
+  	
+  	document.write("Now the names again in order" + "<br />");
+  	
+  	for (var index = 0; index <= 6; index++)
+  	
+  	{
+  		document.write(firstNameArray[index] + "<br />")
+  	}
+  	
+  	//4. 
+  	
+  	var newJoin = firstNameArray.join("*");
+  	document.write(newJoin);
+  	
+  	
+		</script>
+		
+		
+	</head>
+
+	<body>
+		
+	</body>
+</html>

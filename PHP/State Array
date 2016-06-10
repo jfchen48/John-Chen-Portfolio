@@ -1,3 +1,4 @@
+   <!-- Array of states -->
    <?php
    $StateCodes = array(
     'AK', 

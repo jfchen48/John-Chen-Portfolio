@@ -1,3 +1,5 @@
+<!-- validation page for CreateAccount.html -->
+
 <?php
 
 //First Name
@@ -133,10 +135,6 @@ header('Location:CreateAccount.html');
 			
 			?>
 			
-			
-			
 		</body>
-	
-	
 	
 </html>

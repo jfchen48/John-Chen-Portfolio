@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+		<!-- John Chen
+	Project 1: HTML Form
+	9/19/2015-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Sentence reverser</title>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- JQueryUI -->
+	<script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">	
+
+	<script type="text/javascript">
+		// Javascript version
+		// function formValidate () {
+		// var inputSentence = document.getElementById("txtSentence");
+		// console.log(inputSentence.value);
+		// var inputString = inputSentence.value.toString();
+		// console.log(inputString.split("").reverse().join("").split(" ").reverse().join(" "));
+		// var result = inputString.split("").reverse().join("").split(" ").reverse().join(" ").toString();
+		// document.getElementById("txtResult").value = result;
+		//}
+
+		// Add onclick="formValidate()" to btnSubmit if going back to regular javascript
+
+		//Jquery Version
+		$(document).ready(function() {
+			$('#btnSubmit').click(function() {
+					var inputSentence = $('#txtSentence').val();
+					console.log(inputSentence);
+					var inputString = inputSentence.toString();
+					console.log(inputString.split("").reverse().join("").split(" ").reverse().join(" "));
+					var result = inputString.split("").reverse().join("").split(" ").reverse().join(" ").toString();
+					$('#txtResult').val(result);
+				});
+
+			$('#btnReset').click(function() {
+					$('#txtSentence').val("");
+					$('#txtResult').val("");
+				});
+		});
+
+	</script>
+
+
+	</head>
+
+	<div class="container">
+
+	<h1>Sentence Character Reverter</h1>
+	<div class="row">
+		<div class="col-lg-7">
+			<body>
+					<fieldset id="Sentence">
+						<br>
+						<label for="Sentence">Enter a sentence to reverse:</label>
+						<input type="text" id="txtSentence" class="form-control" name="txtSentence" autofocus/><br>
+					</fieldset>
+					<fieldset id="RevSentence">
+						<br>
+						<label for="RevSentence">The Reversed Text is:</label>
+						<input type="text" id="txtResult" class="form-control" name="txtResult" readonly="true" /><br>
+					</fieldset>
+					<div id="finish">
+						<fieldset id="buttons">
+							<input type="submit" class="btn btn-primary" id="btnSubmit" name="btnSubmit" value="Reverse the sentence" > 
+							<input type="reset" class="btn btn-secondary" id="btnReset" name="btnReset">
+						</fieldset>
+					</div>
+			</body>
+		</div>
+	</div>
+	</div>
+</html>
